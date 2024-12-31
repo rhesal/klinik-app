@@ -11,6 +11,9 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    public function view(){
+        return view('pasien.view');
+    }
     /**
      * Display the user's profile form.
      */
@@ -57,4 +60,6 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    
 }

@@ -13,7 +13,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/template', function () {
-    return view('layouts.template');
+    return view('template');
 })->middleware(['auth', 'verified'])->name('template');
 
 Route::middleware('auth')->group(function () {
@@ -21,10 +21,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/pasien', [ProfileController::class, 'view'])->name('profile.pasien');
+
     // Global Routes
 
 });
 
 require __DIR__.'/auth.php';
 
-Route::apiResource('pasien', PasienController::class);
+// Route::apiResource('pasien', PasienController::class);
